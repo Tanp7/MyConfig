@@ -24,7 +24,6 @@
  set incsearch
  set hlsearch                    "高亮搜索项"
  set autoread
- syntax enable  " 高亮
  set background=dark
  color snazzy  " 	vim主题
  " 设置透明背景
