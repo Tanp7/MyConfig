@@ -24,17 +24,21 @@
  set incsearch
  set hlsearch                    "高亮搜索项"
  set autoread
- syntax enable
+ syntax enable  " 高亮
  set background=dark
- color snazzy
- autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE " transparent bg
+ color snazzy  " 	vim主题
+ " 设置透明背景
+ autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE " transparent bg  
 
+" clangd配置
 let g:ycm_use_clangd = "Always"
 let g:ycm_clangd_binary_path = "/path/to/clangd"
 " Let clangd fully control code completion
 let g:ycm_clangd_uses_ycmd_caching = 0
 " Use installed clangd, not YCM-bundled clangd which doesn't get updates.
 let g:ycm_clangd_binary_path = exepath("clangd")
+
+" 不同模式下改变光标的样式
 let &t_SI = "\<ESC>]50;CursorShape=1\x7"
 let &t_SR = "\<ESC>]50;CursorShape=2\x7"
 let &t_EI = "\<ESC>]50;CursorShape=0\x7"
@@ -163,11 +167,6 @@ let NERDTreeMapChangeRoot = "y"
 
 
 
-
-" ==
-" == YouCompleteMe
-" ==
-" 自动补全配置
 
 " ==
 " == NERDTree-git
