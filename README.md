@@ -1,7 +1,6 @@
 # myconfig
 ## 预览图
-[img](img/img.gif)
-
+<center><img src="img/img.gif" width="" height=""></center>
 
 ### 使用vim-plug安装插件
 ```vim
