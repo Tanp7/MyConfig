@@ -8,5 +8,5 @@
 ```
 
 ## 预览图中的主题：
-iterm2: ayu-mirage
-vim: ayu-mirage
+- iterm2: ayu-mirage
+- vim: ayu-mirage
