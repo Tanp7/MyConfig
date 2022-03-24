@@ -1,4 +1,4 @@
- set relativenumber
+ set norelativenumber
  set smartindent
  set expandtab			" 缩进时将tab制表服转为空格
  set nocompatible
@@ -20,7 +20,7 @@
  set cindent                     "设置C样式的缩进格式"
  set tabstop=2                  "一个 tab 显示出来是多少个空格，默认 8
  set shiftwidth=2                "每一级缩进是多少个空格
-" set showmatch                   "显示匹配的括号"
+" set showmatch                   "显示匹配的括号
  set mouse=a                     "启用鼠标"
  set selection=exclusive
  set selectmode=mouse,key
@@ -29,13 +29,18 @@
  set incsearch
  set hlsearch                    "高亮搜索项"
  set autoread
+ set scrolloff=10
  syntax enable
 " 主题配置
  set background=dark
  let g:gruvbox_italic=1
- colorscheme gruvbox
- autocmd vimenter * ++nested colorscheme gruvbox
-" autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE " transparent bg
+ " colorscheme snazzy
+ let ayucolor="light"  " for light version of theme
+ let ayucolor="mirage" " for mirage version of theme
+"let ayucolor="dark"   " for dark version of theme
+ colorscheme ayu
+ " autocmd vimenter * ++nested colorscheme gruvbox
+ " autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE " transparent bg
 
 "Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
 "If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
@@ -90,6 +95,7 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 set nocompatible              " be iMproved, required
 filetype off                  " required
 call plug#begin()
+Plug 'ayu-theme/ayu-vim' " or other package manager
 Plug 'mhinz/vim-startify'
 Plug 'morhetz/gruvbox'
 Plug 'sheerun/vim-polyglot'
@@ -104,6 +110,7 @@ Plug 'iamcco/mathjax-support-for-mkdp'
 Plug 'iamcco/markdown-preview.vim'
 Plug 'connorholyday/vim-snazzy'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'arcticicestudio/nord-vim'
 " Auto complete
 Plug 'ycm-core/YouCompleteMe'
 
@@ -147,8 +154,12 @@ call plug#end()
 " === MarkdownPreview
 " ===
   let g:mkdp_path_to_chrome = "open -a Google\\ Chrome"
-   
-    let g:mkdp_auto_start = 1
+  " 设置Chrome浏览器的路径（或是启动Chrome（其他现代浏览器）的命令）
+  " 如果设置了该参数，g:mkdp_browserfunc 将被忽略
+    let g:mkdp_browserfunc = 'MKDP_browserfunc_default'
+    " vim 回调函数, 参数为要打开的 url
+
+    let g:mkdp_auto_start = 0
     " 设置为 1 可以在打开 markdown 文件的时候自动打开浏览器预览，只在打开
     " markdown 文件的时候打开一次
 
@@ -213,7 +224,7 @@ let g:NERDTreeGitStatusIndicatorMapCustom = {
 " ==
 " == airline
 " ==
-let g:airline_theme='gruvbox'
+"let g:airline_theme='gruvbox'
 let g:airline_section_b = '%{strftime("%c")}'
 let g:airline_section_y = 'BN: %{bufnr("%")}'
 let g:airline#extensions#tabline#enabled = 1
@@ -230,8 +241,29 @@ set laststatus=2
 set t_Co=256
 set fillchars+=stl:\ ,stlnc:\
 
+" ==
+" == Vim Folding(Marker Method)
+" ==
+"
+" Key blidings
+" 
+" za - To toggle fold
+" zd - To delete fold
+" zf#j creates a fold from the cursor down # lines.
+" zf/string creates a fold from the cursor to string.
+" zj moves the cursor to the next fold.
+" zk moves the cursor to the previous fold.
+" zo opens a fold at the cursor.
+" zO opens all folds at the cursor.
+" zm increases the foldlevel by one.
+" zM closes all open folds.
+" zr decreases the foldlevel by one.
+" zR decreases the foldlevel to zero -- all folds will be open.
+" zd deletes the fold at the cursor.
+" zE deletes all folds.
+" [z move to start of open fold.
+" ]z move to end of open fold.
 
-" 显示折叠
 " VIMSCRIPT -------------------------------------------------------------- {{{
 
 " Enable the marker method of folding.
@@ -263,10 +295,10 @@ augroup END
 if has('gui_running')
 
     " Set the background tone.
-    set background=dark
+    " set background=dark
 
     " Set the color scheme.
-    colorscheme molokai
+    " colorscheme molokai
 
     " Set a custom font you have installed on your computer.
     " Syntax: <font_name>\ <weight>\ <size>
