@@ -18,8 +18,8 @@
  syntax on                       "开启语法高亮
  set fileformat=unix             "设置以unix的格式保存文件"
  set cindent                     "设置C样式的缩进格式"
- set tabstop=2                  "一个 tab 显示出来是多少个空格，默认 8
- set shiftwidth=2                "每一级缩进是多少个空格
+ set tabstop=4                  "一个 tab 显示出来是多少个空格，默认 8
+ set shiftwidth=4                "每一级缩进是多少个空格
 " set showmatch                   "显示匹配的括号
  set mouse=a                     "启用鼠标"
  set selection=exclusive
@@ -34,11 +34,11 @@
 " 主题配置
  set background=dark
  let g:gruvbox_italic=1
- " colorscheme snazzy
- let ayucolor="light"  " for light version of theme
- let ayucolor="mirage" " for mirage version of theme
+ colorscheme nord
+ "let ayucolor="light"  " for light version of theme
+ "let ayucolor="mirage" " for mirage version of theme
 "let ayucolor="dark"   " for dark version of theme
- colorscheme ayu
+ "colorscheme ayu
  " autocmd vimenter * ++nested colorscheme gruvbox
  " autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE " transparent bg
 
@@ -105,8 +105,9 @@ Plug 'vim-ctrlspace/vim-ctrlspace'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'edkolev/promptline.vim'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install_sync() }, 'for' :['markdown', 'vim-plug'] }
 Plug 'iamcco/mathjax-support-for-mkdp'
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+Plug 'instant-markdown/vim-instant-markdown', {'for': 'markdown', 'do': 'yarn install'}
 Plug 'iamcco/markdown-preview.vim'
 Plug 'connorholyday/vim-snazzy'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -148,6 +149,10 @@ Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
 
+" ===
+" === Instant-markdown-preview
+" ===
+filetype plugin on
 
 
 " ===
@@ -156,7 +161,7 @@ call plug#end()
   let g:mkdp_path_to_chrome = "open -a Google\\ Chrome"
   " 设置Chrome浏览器的路径（或是启动Chrome（其他现代浏览器）的命令）
   " 如果设置了该参数，g:mkdp_browserfunc 将被忽略
-    let g:mkdp_browserfunc = 'MKDP_browserfunc_default'
+    let g:mkdp_browserfunc = ''
     " vim 回调函数, 参数为要打开的 url
 
     let g:mkdp_auto_start = 0
@@ -182,6 +187,19 @@ call plug#end()
     let g:mkdp_open_to_the_world = 0
     " 设置为 1, 在使用的网络中的其他计算机也能访问预览页面
     " 默认只监听本地（127.0.0.1），其他计算机不能访问
+    let g:mkdp_preview_options = {
+    \ 'mkit': {},
+    \ 'katex': {},
+    \ 'uml': {},
+    \ 'maid': {},
+    \ 'disable_sync_scroll': 0,
+    \ 'sync_scroll_type': 'middle',
+    \ 'hide_yaml_meta': 1,
+    \ 'sequence_diagrams': {},
+    \ 'flowchart_diagrams': {},
+    \ 'content_editable': v:false,
+    \ 'disable_filename': 0
+    \ }
 
 
 " ===
