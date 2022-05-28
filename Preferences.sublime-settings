@@ -1,0 +1,50 @@
+// Settings in here override those in "Default/Preferences.sublime-settings",
+// and are overridden in turn by syntax-specific settings.
+{
+	"caret_style": "blink",
+	"file_tab_style": "angled",
+	"font_size": 16,
+	"color_scheme": "Monokai.sublime-color-scheme",
+	"ignored_packages":
+	[
+	],
+	"native_tabs": "system",
+	"theme": "Default.sublime-theme",
+	"auto_complete_with_fields": true,
+	"auto_complete_commit_on_tab": true,
+	"auto_complete_use_history": true,
+	"highlight_modified_tabs": true,
+	"adaptive_dividers": true,
+	"relative_line_numbers": false,
+	"font_face": "menlo",
+
+	/*"gn_hide_tab_dropdown": true,*/
+	/*"gn_overlay_scroll_bars": true,*/
+	/*"gn_sidebar_box": true,*/
+	/*"gn_title_bar": true,*/
+	/*"gnc_h15": true,*/
+	/*"gnc_m03": true,*/
+	/*"gnc_w6m14": true,*/
+	/*"gnwidg1": true,*/
+	/*"gnwidgo": true,*/
+	"gpu_window_buffer": true,
+	/*"gnc_h15": true,*/
+	/*"gnc_h15": true,*/
+	/*"gnc_m04": true,*/
+	/*"gnc_w6m14": true,*/
+	/*"gnc_h15": true,*/
+	/*"gnc_m04": true,*/
+	/*"gnc_w6m14": true,*/
+	/*"gnc_m04": true,*/
+	/*"gnc_w6m14": true,*/
+	/*"gnc_h15": true,*/
+	/*"gnc_m05": true,*/
+	/*"gnc_m06": true,*/
+	/*"gnc_001": true,*/
+	/*"gnc_h15": true,*/
+	/*"gnc_m02": true,*/
+	/*"gnc_w6m15": true,*/
+	/*"gnc_h15": true,*/
+	/*"gnc_m04": true,*/
+	/*"gnc_w6m15": true,*/
+}
