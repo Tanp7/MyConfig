@@ -1,12 +1,28 @@
-# myconfig
-## 预览图
-<center><img src="img/img.gif" width="" height=""></center>
+# Tanp7's config
 
-### 使用vim-plug安装插件
+## iterm2
+
+## It looks like
+
+<center><img src="img/iterm2.png" width="" height=""></center>
+
+## vim
+
+### if you are using ```vim-plug```
+
 ```vim
 :PlugInstall
 ```
 
-## 预览图中的主题：
-- iterm2: ayu-mirage
+## neovim
+
+### if you are using ```packer```
+
+```neovim
+:PackerSync
+```
+
+## colorschemes
+
+- iterm2: Ubuntu
 - vim: ayu-mirage

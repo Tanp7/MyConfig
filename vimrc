@@ -34,11 +34,13 @@
 " 主题配置
  set background=dark
  let g:gruvbox_italic=1
- colorscheme nord
+ let g:nord_italic=1
+ let g:onedark_terminal_italics=1
+ "colorscheme gruvbox
  "let ayucolor="light"  " for light version of theme
- "let ayucolor="mirage" " for mirage version of theme
+ let ayucolor="mirage" " for mirage version of theme
 "let ayucolor="dark"   " for dark version of theme
- "colorscheme ayu
+ colorscheme ayu
  " autocmd vimenter * ++nested colorscheme gruvbox
  " autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE " transparent bg
 
@@ -58,13 +60,6 @@ if (empty($TMUX))
   endif
 endif
 
-" ycm配置clangd
-let g:ycm_use_clangd = "Always"
-let g:ycm_clangd_binary_path = "/path/to/clangd"
-" Let clangd fully control code completion
-let g:ycm_clangd_uses_ycmd_caching = 0
-" Use installed clangd, not YCM-bundled clangd which doesn't get updates.
-let g:ycm_clangd_binary_path = exepath("clangd")
 
 " 不同输入模式下变换光标样式
 let &t_SI = "\<ESC>]50;CursorShape=1\x7"
@@ -95,11 +90,16 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 set nocompatible              " be iMproved, required
 filetype off                  " required
 call plug#begin()
+" Color
 Plug 'ayu-theme/ayu-vim' " or other package manager
 Plug 'mhinz/vim-startify'
 Plug 'morhetz/gruvbox'
 Plug 'sheerun/vim-polyglot'
 Plug 'joshdick/onedark.vim'
+Plug 'flazz/vim-colorschemes'
+Plug 'glepnir/oceanic-material'
+Plug 'mhartington/oceanic-next'
+
 Plug 'vim-airline/vim-airline'
 Plug 'vim-ctrlspace/vim-ctrlspace'
 Plug 'vim-airline/vim-airline-themes'
@@ -113,10 +113,12 @@ Plug 'connorholyday/vim-snazzy'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'arcticicestudio/nord-vim'
 " Auto complete
-Plug 'ycm-core/YouCompleteMe'
+" Plug 'ycm-core/YouCompleteMe'
+Plug 'vim-scripts/AutoComplPop'
+Plug 'zxqfl/tabnine-vSm'
 
 " Error checking
-Plug 'w0rp/ale'
+ Plug 'w0rp/ale'
 
 " Web Html/css/js etc...
 Plug 'mattn/emmet-vim'
@@ -138,8 +140,8 @@ Plug 'cocopon/iceberg.vim'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'altercation/vim-colors-solarized'
-Plug 'prabirshrestha/vim-lsp'
-Plug 'mattn/vim-lsp-settings'
+" Plug 'prabirshrestha/vim-lsp'
+" Plug 'mattn/vim-lsp-settings'
 
 
 " File
