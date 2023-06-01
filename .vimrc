@@ -10,11 +10,11 @@
  set showcmd
  set wildmenu 
  set number                      "显示行号
- " set showtabline=0               "隐藏顶部标签栏"
- " set guioptions-=r               "隐藏右侧滚动条"
- " set guioptions-=L               "隐藏左侧滚动条"
- " set guioptions-=b               "隐藏底部滚动条"
- set nocursorline			         		 "突出显示当前行"
+ set showtabline=0               "隐藏顶部标签栏"
+ set guioptions-=r               "隐藏右侧滚动条"
+ set guioptions-=L               "隐藏左侧滚动条"
+ set guioptions-=b               "隐藏底部滚动条"
+ " set cursorline			         		 "突出显示当前行"
  set langmenu=zh_CN.UTF-8        "显示中文菜单
  syntax on                       "开启语法高亮
  set fileformat=unix             "设置以unix的格式保存文件"
@@ -46,8 +46,8 @@
  " let ayucolor="dark"   " for dark version of theme
  " colorscheme monokai
  " colorscheme dracula
- autocmd vimenter * ++nested colorscheme iceberg
- " autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE " transparent bg
+ autocmd vimenter * ++nested colorscheme nord
+ autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE " transparent bg
 
 "Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
 "If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
@@ -154,9 +154,6 @@ Plug 'Yggdroot/indentLine'
 " Plug 'prabirshrestha/vim-lsp'
 " Plug 'mattn/vim-lsp-settings'
 
-" Competitive_contest (Neovim only :( )
-" Plug 'MunifTanjim/nui.nvim'        " it's a dependency
-" Plug 'xeluxee/competitest.nvim'
 
 " File
 Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -300,9 +297,9 @@ if !exists('g:airline_symbols')
 endif
 let g:airline_symbols.space = "\ua0"
 let g:airline_exclude_filename = []
-let g:Powerline_symbols='fancy'
+" let g:Powerline_symbols='fancy'
 let g:airline_powerline_fonts=0
-let Powerline_symbols='fancy'
+" let Powerline_symbols='fancy'
 let g:bufferline_echo=0
 set laststatus=2
 set t_Co=256

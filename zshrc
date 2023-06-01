@@ -1,3 +1,5 @@
+# Fig pre block. Keep at the top of this file.
+[[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -8,6 +10,7 @@ fi
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=$HOME/Downloads/cf_v1.0.0_darwin_64:$PATH
+export PATH=$HOME/Downloads/cp-helper:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/pz/.oh-my-zsh"
@@ -20,8 +23,8 @@ export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-# ZSH_THEME="random"
-ZSH_THEME="powerlevel10k/powerlevel10k"
+ZSH_THEME="robbyrussell"
+# ZSH_THEME="powerlevel10k/powerlevel10k"
 COLORTERM=truecolor
 
 # Set list of themes to pick from when loading at random
@@ -113,16 +116,17 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias s="neofetch | lolcat"
+alias s="neofetch || lolcat"
 alias b="bashtop"
 alias ra="ranger"
 alias nv="nvim"
 alias c="clear"
 alias py3="python3"
 alias yd="youtube-dl"
+alias python="python3"
 
 # gcc11
-alias gcc="gcc-12"
+# alias gcc="gcc-12"
 alias g++="g++ -std=c++20"
 alias clang++="clang++ -std=c++20"
 #alias cc="gcc-12"
@@ -133,19 +137,23 @@ alias clang++="clang++ -std=c++20"
 
 eval $(thefuck --alias)
 
+
 export NVM_DIR="$HOME/.nvm"
   [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
   [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
 
 bindkey ',' autosuggest-accept
 
 # 代理
 export https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890 all_proxy=socks5://127.0.0.1:7890
+
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 #export PATH="/usr/local/opt/llvm/bin:$PATH"
 #export LDFLAGS="-L/usr/local/opt/llvm/lib"
 #export CPPFLAGS="-I/usr/local/opt/llvm/include"
+
 
 export PATH="/opt/homebrew/opt/qt@5/bin:$PATH"
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
@@ -156,23 +164,30 @@ export PATH="/opt/homebrew/opt/qt@5/bin:$PATH"
 
 # cp_prase
 export PATH="/Users/pz/go/bin:$PATH"
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/pz/opt/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/Users/pz/opt/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/Users/pz/opt/anaconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/Users/pz/opt/anaconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-
-
 export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
 export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
 export PATH="/opt/homebrew/opt/mbedtls@2/bin:$PATH"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+
+# ics2021 NJU
+export NEMU_HOME=~/ics2021/nemu
+export AM_HOME=~/ics2021/fceux-am
+export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
+PATH="/opt/homebrew/opt/make/libexec/gnubin:$PATH"
+PATH="/opt/homebrew/opt/inetutils/libexec/gnubin:$PATH"
+export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
+PATH="$PATH:/Applications/WezTerm.app/Contents/MacOS"
+export PATH
+fpath=($fpath "/Users/pz/.zfunctions")
+
+# ccache 
+PATH="/opt/homebrew/opt/ccache/libexec:$PATH"
+
+# Set typewritten ZSH as a prompt
+# autoload -U promptinit; promptinit
+# prompt typewritten
+
+# Fig post block. Keep at the bottom of this file.
+[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
